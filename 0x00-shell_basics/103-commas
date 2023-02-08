@@ -1,2 +1,4 @@
 #!/bin/bash
-ls -1 | tr '\n' ','
+ls -1A | awk '{if ($0 ~ /^[0-9]/) print $0; else print "zz"$0}' | sort | awk '{if ($0 ~ /^zz/) print substr($0,3); else print $0}' | tr '\n' ',' | awk '{if (NF > 0) printf("%s\n", substr($0,0,length($0)-1))}'
+
+
