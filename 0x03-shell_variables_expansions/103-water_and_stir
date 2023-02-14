@@ -1,0 +1,2 @@
+#!/bin/bsh
+printf $(( $(echo ${WATER} | base32 -d) + $(echo ${STIR} | base32 -d) )) | base32
